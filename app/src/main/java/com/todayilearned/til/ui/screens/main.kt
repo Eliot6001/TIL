@@ -32,22 +32,26 @@ import com.todayilearned.til.ui.screens.settings.SettingsSheetPartial
 import com.todayilearned.til.ui.screens.viewall.TilistScreen
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class Screen(val route: String, val label: String, val icon: String) {
-    data object Home : Screen("home", "Today", "🏠")
-    data object Create : Screen("create", "Add", "➕")
-    data object TilList : Screen("til_list", "All", "📝")
-    data object Detail : Screen("til_detail", "Detail", "\uD83D\uDCD7")
+
+sealed class Screen(val route: String, val label: String, val icon: ImageVector) {
+    object Home : Screen("home", "Today", Icons.Filled.Home)
+    object Create : Screen("create", "Add", Icons.Filled.Add)
+    object TilList : Screen("til_list", "All", Icons.Filled.Book)
 
     companion object {
         val bottomNavItems: List<Screen>
             get() = listOf(Home, Create, TilList)
     }
 }
-
 @Composable
 fun MainScreen(
-    tilViewModel: TilViewModel, // Accept ViewModel as parameter
+    tilViewModel: TilViewModel,
     isDark: Boolean,
     onThemeToggle: () -> Job,
 ) {

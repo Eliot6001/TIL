@@ -1,5 +1,6 @@
 package com.todayilearned.til.ui.navigation
 
+import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -24,7 +25,7 @@ fun BottomNavigationBar(
                         onItemSelected(screen.route)
                     }
                 },
-                icon = { Text(screen.icon) },
+                icon = { Icon(screen.icon, "open ${screen.label} ") },
                 label = { Text(screen.label) }
             )
         }
