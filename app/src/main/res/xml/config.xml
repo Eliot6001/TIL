@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <boolean name="preload_screens">true</boolean>
+</config>
